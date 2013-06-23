@@ -3,7 +3,6 @@ var fs = require('fs');
 
 var NUMBER_OF_PRIMES_TO_GENERATE = 100;
 
-var primeNumbersFound = 0;
 var lastNumber = 0;
 var outputFile = "primenumbers.txt";
 var primeNumberArray = new Array();
@@ -26,11 +25,11 @@ var isNumberAPrimeNumber = function(number) {
 	return true;
 }
 
-while (primeNumbersFound < NUMBER_OF_PRIMES_TO_GENERATE) {
+while (primeNumberArray.length < NUMBER_OF_PRIMES_TO_GENERATE) {
 	if (isNumberAPrimeNumber(++lastNumber)) {
 		primeNumberArray.push(lastNumber);
-		primeNumbersFound++;
 	}
 }
 
 fs.writeFileSync(outputFile, primeNumberArray.join());
+
